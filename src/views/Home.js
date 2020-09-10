@@ -13,11 +13,13 @@ export default function Home() {
             <div className="home__row">
                 {/* product */}
                 <Product 
+                   id="12331"
                     title="Maxboost Screen Protector for Apple iPhone Xs & iPhone X & iPhone 11 Pro (3 Packs, Clear) 0.25mm Tempered Glass Screen Protector with Advanced Clarity [3D Touch] Work w/Most Case 99% Touch Accurate" 
                     price={11.85} 
                     image="https://images-na.ssl-images-amazon.com/images/I/71zW4NXBIXL._AC_SL1500_.jpg" 
                     rating={5}/>
-                    <Product 
+                <Product 
+                   id="12332"
                     title="Kasa Smart Light Switch by TP-Link, Single Pole, Needs Neutral Wire, 2.4Ghz WiFi Light Switch Works with Alexa and Google Assistant, UL Certified, 1-Pack (HS200), White" 
                     price={29.99} 
                     image="https://images-na.ssl-images-amazon.com/images/I/71dXf56rv0L._AC_SL1500_.jpg" 
@@ -48,7 +50,7 @@ export default function Home() {
             <div className="home__row">
                 {/* product */}
                 <Product
-                    id="12321"
+                    id="12329"
                     title="Apple Watch Series 3 (GPS, 42mm) - Space Grey Aluminium Case with Black Sport Band"
                     price={20}
                     rating={5}
