@@ -1,25 +1,77 @@
-import React from 'react'
-import '../css/home.css'
-import Product from '../components/Product'
+import React from 'react';
+import '../css/home.css';
+import Product from '../components/Product';
+import {  useTheme } from '@material-ui/core/styles';
+
+import SwipeableViews from 'react-swipeable-views';
+import { autoPlay } from 'react-swipeable-views-utils';
+
+const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+
+
+const tutorialSteps = [
+    {
+        imgPath: "https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.jpg"
+    },
+    {
+        imgPath:"https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.jpg "
+    },
+    {
+        imgPath: "https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.jpg"
+    }
+]
 
 
 export default function Home() {
+    const [activeStep, setActiveStep] = React.useState(0);
+    const theme = useTheme();
+    const handleNext = () => {
+        setActiveStep((prevActiveStep) => prevActiveStep + 1);
+      };
+    
+      const handleBack = () => {
+        setActiveStep((prevActiveStep) => prevActiveStep - 1);
+      };
+    
+      const handleStepChange = (step) => {
+        setActiveStep(step);
+      };
     return (
         <div className="home">
+            {/* <div className="home__container">
+                <img className="home__image" alt="banner" src="https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.jpg"></img>
+            </div> */}
             <div className="home__container">
-                <img className="home__image" src="https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.jpg"></img>
+             <AutoPlaySwipeableViews
+                    axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+                    index={activeStep}
+                    onChangeIndex={handleStepChange}
+                    enableMouseEvents
+                >
+                    {tutorialSteps.map((step, index) => (
+                    <div key={index}>
+                        {Math.abs(activeStep - index) <= 2 ? (
+                       <img
+                       className="home__image"
+                       src={step.imgPath}
+                       alt="alt"
+                   />
+                        ) : null}
+                    </div>
+                    ))}
+            </AutoPlaySwipeableViews>
             </div>
-
+            
             <div className="home__row">
                 {/* product */}
                 <Product 
-                   id="12331"
+                   id="12341"
                     title="Maxboost Screen Protector for Apple iPhone Xs & iPhone X & iPhone 11 Pro (3 Packs, Clear) 0.25mm Tempered Glass Screen Protector with Advanced Clarity [3D Touch] Work w/Most Case 99% Touch Accurate" 
                     price={11.85} 
                     image="https://images-na.ssl-images-amazon.com/images/I/71zW4NXBIXL._AC_SL1500_.jpg" 
                     rating={5}/>
                 <Product 
-                   id="12332"
+                   id="12342"
                     title="Kasa Smart Light Switch by TP-Link, Single Pole, Needs Neutral Wire, 2.4Ghz WiFi Light Switch Works with Alexa and Google Assistant, UL Certified, 1-Pack (HS200), White" 
                     price={29.99} 
                     image="https://images-na.ssl-images-amazon.com/images/I/71dXf56rv0L._AC_SL1500_.jpg" 
