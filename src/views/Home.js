@@ -25,22 +25,11 @@ const tutorialSteps = [
 export default function Home() {
     const [activeStep, setActiveStep] = React.useState(0);
     const theme = useTheme();
-    const handleNext = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep + 1);
-      };
-    
-      const handleBack = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep - 1);
-      };
-    
       const handleStepChange = (step) => {
         setActiveStep(step);
       };
     return (
         <div className="home">
-            {/* <div className="home__container">
-                <img className="home__image" alt="banner" src="https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.jpg"></img>
-            </div> */}
             <div className="home__container">
              <AutoPlaySwipeableViews
                     axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}

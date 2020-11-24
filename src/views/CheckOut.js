@@ -1,14 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 import '../css/Cart.css'
 import Subtotal from '../components/Subtotal.js'
 import {useStateValue} from '../store/StateProvider'
 import CheckoutProduct from '../components/CheckOutProducts'
-import FlipMove from 'react-flip-move';
+
 
 export default function CheckOut() {
     const [{basket, user}] = useStateValue();
-    const [enterLeaveAnimation, setEnterLeaveAnimation] = useState('accordianVertical');
-
+ 
     return (
         <div className="checkout">
            <div className="checkout__left">
@@ -19,7 +18,7 @@ export default function CheckOut() {
                     <h2>{user ? user.email : ""}</h2>
                     <h3 className="checkout__title">Your shopping Basket</h3>
                     <div className="checkout__products">
-                    
+                      
                         {basket.map((e, i) => {
                             return  <CheckoutProduct 
                             key={i} 
@@ -29,7 +28,7 @@ export default function CheckOut() {
                             rating={e.rating}
                             image={e.image}/>
                         })}
-                 
+                   
                   </div>
 
                 </div>
