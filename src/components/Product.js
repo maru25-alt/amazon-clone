@@ -19,10 +19,15 @@ export default function Product({price, title, image, rating, id}) {
             }
         })
     }
+
+    const getTitle = (title) => {
+        let n = 120
+       return title.slice(0, n)
+    }
     return (
         <div className="product">
            <div className="product__info">
-             <p>{title}</p>  
+             <p>{getTitle(title)}</p>  
              <p className="product__price"> 
                <small>$</small> 
                <strong>{price}</strong>    

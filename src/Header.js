@@ -39,14 +39,17 @@ export default function Header() {
                     </div>
                 </Link>
                 <Link to="/orders" className="header__option">
-                <span className="header__optionLineOne">Returns</span>
-                    <span className="header__optionLineTwo">Orders</span>
+                    <div className="header__option">
+                        <span className="header__optionLineOne">Returns</span>
+                        <span className="header__optionLineTwo">Orders</span>
+                    </div>  
                 </Link>
-                <div className="header__option">
-                <span className="header__optionLineOne">Your</span>
-                    <span className="header__optionLineTwo">Prime</span>
-                </div>
-
+                <Link to="/">
+                    <div className="header__option">
+                    <span className="header__optionLineOne">Your</span>
+                        <span className="header__optionLineTwo">Prime</span>
+                    </div>
+                </Link>
                <Link className="header__link" to="/checkout">
                 <div className="header__optionBasket">
                     <ShoppingBasketIcon/>

@@ -46,3 +46,10 @@
   border-top: 10px;
   border-color: #a88734 #9c7e31 #846a29 #f0c14b;
 }
+
+.payment__details > form > button:disabled,
+.payment__details > form > button[disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
