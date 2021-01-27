@@ -1,6 +1,6 @@
 # Live Site:
 
-https://github.com/maru25-alt/amazon-clone.git
+https://clone-ab647.web.app/
 
 # Demo Video
 
