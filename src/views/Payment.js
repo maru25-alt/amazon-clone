@@ -22,19 +22,17 @@ export default function Payment() {
     const history = useHistory();
 
    useEffect(() => {
-       
       const getClientSecret = async () => {
          const response = await axios({
              method: 'post',
              url: `/payments/create?total=${getBasketTotal(basket) * 100}`
          })
          setClientSecret(response.data.clientSecret.client_secret)
-       
       } 
-
       getClientSecret()
    }, [basket])
-   console.log(user?.uid)
+
+   
     const handleSubmit = async (e) => {
            e.preventDefault();
            setprocessing(true);
@@ -69,7 +67,6 @@ export default function Payment() {
     const handleChange = (e) => {
         setDisabled(e.empty);
         setError(e.error ? e.error.message : "")
-
     }
     return (
         <div className="payment">
@@ -137,6 +134,8 @@ export default function Payment() {
                         </form>
                     </div>
                 </div>
+
+
             </div>
         </div>
     )
